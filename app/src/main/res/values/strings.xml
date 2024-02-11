@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">quizdroid</string>
+    <string name="btn_topic_begin">Begin</string>
+    <string name="btn_submit">Submit</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_finish">Finish</string>
+    <string name="txt_answered">You answered: %1$s</string>
+    <string name="txt_correct">Correct answer: %1$s</string>
+    <string name="txt_ratio">You have %1$d of %2$d correct</string>
+    <string name="finish">Finish</string>
+    <string name="questions_correct">You have %1$d out of %2$s questions correct.</string>
+    <string name="quiz_overview">%1$s Quiz Overview</string> <!-- Corrected to include a placeholder -->
+    <string name="begin_quiz">Begin Quiz</string>
+    <string name="you_answered">You answered:</string>
+    <string name="user_answer">User Answer</string>
+    <string name="correct_answer_is">The Correct Answer is:</string>
+    <string name="correct_answer">Correct Answer</string>
+    <string name="total_questions_correct">You have num out of num correct.</string>
+    <string name="next">Next</string>
+    <string name="select_quiz">Select a quiz to take!</string>
+    <string name="question_number">Question number: %d</string>
+    <string name="question_text">Question Text</string>
+    <string name="option_1">Option 1</string>
+    <string name="option_2">Option 2</string>
+    <string name="option_3">Option 3</string>
+    <string name="option_4">Option 4</string>
+    <string name="submit">Submit</string>
+    <string name="quiz_topic_name">Quiz Topic Name</string>
+    <string name="quiz_topic_overview">Quiz Topic Overview</string>
+    <string name="number_of_questions">Number of Questions</string>
+    <string name="begin">Begin</string>
 </resources>

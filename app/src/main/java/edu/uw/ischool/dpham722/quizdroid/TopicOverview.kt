@@ -10,15 +10,15 @@ import org.json.JSONObject
 class TopicOverview : AppCompatActivity() {
     private val quizChoice: JSONObject = JSONObject("""{
         "Math": {
-            "BriefDescription": "Test your knowledge on addition, subtraction, multiplication, and division with this mathematical quiz.",
+            "BriefDescription": "It's math time.",
             "NumberOfQuestions": "4"
         },
         "Physics": {
-            "BriefDescription": "Test your knowledge on physics and see your understanding of motion and behavior through space and time.",
+            "BriefDescription": "Its physics time.",
             "NumberOfQuestions": "3"
         },
         "Marvel Super Heroes": {
-            "BriefDescription" : "Marvel is known for their American superheroes in the MCU film franchise. Do you know your Marvel Super Heroes?",
+            "BriefDescription" : "It's marvel time.?",
             "NumberOfQuestions": "3"
         }
     }""")
@@ -35,9 +35,11 @@ class TopicOverview : AppCompatActivity() {
         val quizOverview = findViewById<TextView>(R.id.quizOverview)
         quizOverview.text = briefDescr
 
-        val numQuestions = quizChoice.getJSONObject(topic).getString("NumberOfQuestions")
+        val numQuestionsString = quizChoice.getJSONObject(topic).getString("NumberOfQuestions")
+        val numQuestions = numQuestionsString.toInt()
         val numOverview = findViewById<TextView>(R.id.numQuestions)
         numOverview.text = getString(R.string.number_of_questions, numQuestions)
+
 
         val beginButton = findViewById<Button>(R.id.beginButton)
         beginButton.text = getString(R.string.begin_quiz)

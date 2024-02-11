@@ -11,11 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/question_number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.132"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintVertical_bias="0.075" />
 
     <TextView
@@ -26,11 +26,11 @@
         android:textSize="17sp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintVertical_bias="0.125" />
 
     <RadioGroup
@@ -38,34 +38,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.269">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintVertical_bias="0.25">
 
         <RadioButton
             android:id="@+id/oneOption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/option_1"
             android:layout_marginRight="15dp"
-            android:checked="false"
-            android:text="@string/option_1" />
+            android:checked="false" />
 
         <RadioButton
             android:id="@+id/twoOption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
-            android:text="@string/option_2" />
+            android:text="@string/option_2"
+            android:layout_marginRight="15dp" />
 
         <RadioButton
             android:id="@+id/threeOption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
-            android:text="@string/option_3" />
+            android:text="@string/option_3"
+            android:layout_marginRight="15dp" />
 
         <RadioButton
             android:id="@+id/fourOption"
@@ -78,12 +78,12 @@
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="164dp"
         android:text="@string/submit"
         android:enabled="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="164dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quizQuestion"
+        app:layout_constraintTop_toBottomOf="@id/quizQuestion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

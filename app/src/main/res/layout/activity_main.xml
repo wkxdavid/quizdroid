@@ -10,34 +10,34 @@
         android:id="@+id/quizOptions"
         android:layout_width="191dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="47dp"
-        android:layout_marginEnd="205dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="200dp"
         android:layout_marginBottom="14dp"
         android:text="@string/select_quiz"
         android:textSize="17sp" />
 
     <LinearLayout
-        android:layout_width="409dp"
+        android:layout_width="400dp"
         android:layout_height="600dp"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="85dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="87dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="45dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintVertical_bias="0.0">
 
         <ListView
             android:id="@+id/quizView"
             android:layout_width="match_parent"
-            android:layout_height="196dp" />
+            android:layout_height="200dp" />
     </LinearLayout>
 </RelativeLayout>

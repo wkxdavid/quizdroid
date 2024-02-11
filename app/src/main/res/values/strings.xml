@@ -27,6 +27,7 @@
     <string name="submit">Submit</string>
     <string name="quiz_topic_name">Quiz Topic Name</string>
     <string name="quiz_topic_overview">Quiz Topic Overview</string>
-    <string name="number_of_questions">Number of Questions</string>
+    <string name="number_of_questions">Number of questions: %1$d</string>
+
     <string name="begin">Begin</string>
 </resources>

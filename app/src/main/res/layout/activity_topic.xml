@@ -12,47 +12,47 @@
         android:layout_height="wrap_content"
         android:text="@string/quiz_topic_name"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.086" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.08" />
 
     <TextView
         android:id="@+id/quizOverview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/quiz_topic_overview"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
-        android:text="@string/quiz_topic_overview"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.119"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quizTopic"
-        app:layout_constraintVertical_bias="0.033" />
+        app:layout_constraintTop_toBottomOf="@id/quizTopic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintVertical_bias="0.03" />
 
     <TextView
         android:id="@+id/numQuestions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/number_of_questions"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quizOverview"
-        app:layout_constraintVertical_bias="0.073" />
+        app:layout_constraintTop_toBottomOf="@id/quizOverview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintVertical_bias="0.01" />
 
     <Button
         android:id="@+id/beginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/begin"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quizTopic"
-        app:layout_constraintVertical_bias="0.667" />
+        app:layout_constraintTop_toBottomOf="@id/numQuestions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.665" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

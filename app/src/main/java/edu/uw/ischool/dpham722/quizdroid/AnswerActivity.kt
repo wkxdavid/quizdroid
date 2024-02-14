@@ -11,12 +11,13 @@ class AnswerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_answer)
 
-        val userAnswer = intent.getStringExtra("userAnswer") ?: ""
-        val correctAnswer = intent.getStringExtra("correctAnswer") ?: ""
+        val userAnswer = intent.getStringExtra("userAnswer")
+        val correctAnswer = intent.getIntExtra("correctAnswer", 0)
         val numCorrect = intent.getIntExtra("numCorrect", 0)
-        val totalQuestions = intent.getStringExtra("totalQuestions") ?: ""
+        val totalQuestions = intent.getIntExtra("totalQuestions", 0)
         val questionNumber = intent.getIntExtra("questionNumber", 0)
-        val topic = intent.getStringExtra("topic") ?: ""
+        val topic = intent.getIntExtra("quizTopic", 0)
+        val questionAnswer = QuizApp.repo.getQuiz(topic, questionNumber).answers[correctAnswer]
 
         val youAnsweredTextView = findViewById<TextView>(R.id.userAnswer)
         val correctAnswerTextView = findViewById<TextView>(R.id.correctAnswer)
@@ -24,27 +25,23 @@ class AnswerActivity : AppCompatActivity() {
         val nextButton = findViewById<Button>(R.id.nextOrFinishButton)
 
         youAnsweredTextView.text = userAnswer
-        correctAnswerTextView.text = correctAnswer
-        numOutOfNumTextView.text = getString(R.string.questions_correct, numCorrect, totalQuestions)
+        correctAnswerTextView.text = questionAnswer
+        numOutOfNumTextView.text = getString(R.string.you_have_correct_out_of_total, numCorrect, totalQuestions)
 
-        nextButton.text = if (questionNumber + 1 == totalQuestions.toInt()) {
-            getString(R.string.finish)
-        } else {
-            getString(R.string.next)
+        if ((questionNumber + 1) == totalQuestions) {
+            nextButton.text = getString(R.string.finish)
         }
 
         nextButton.setOnClickListener {
-            if (questionNumber + 1 == totalQuestions.toInt()) {
-                startActivity(Intent(this, MainActivity::class.java).also {
-                    it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                })
+            if (nextButton.text == getString(R.string.finish)) {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
             } else {
-                Intent(this, QuestionGenerator::class.java).also {
-                    it.putExtra("numCorrect", numCorrect)
-                    it.putExtra("questionNumber", questionNumber + 1)
-                    it.putExtra("quizTopic", topic)
-                    startActivity(it)
-                }
+                val intent = Intent(this, QuestionGenerator::class.java)
+                intent.putExtra("numCorrect", numCorrect)
+                intent.putExtra("questionNumber", questionNumber + 1)
+                intent.putExtra("quizTopic", topic)
+                startActivity(intent)
             }
         }
     }

@@ -7,7 +7,6 @@
     <string name="txt_answered">You answered: %1$s</string>
     <string name="txt_correct">Correct answer: %1$s</string>
     <string name="txt_ratio">You have %1$d of %2$d correct</string>
-    <string name="finish">Finish</string>
     <string name="questions_correct">You have %1$d out of %2$s questions correct.</string>
     <string name="quiz_overview">%1$s Quiz Overview</string> <!-- Corrected to include a placeholder -->
     <string name="begin_quiz">Begin Quiz</string>
@@ -28,6 +27,8 @@
     <string name="quiz_topic_name">Quiz Topic Name</string>
     <string name="quiz_topic_overview">Quiz Topic Overview</string>
     <string name="number_of_questions">Number of questions: %1$d</string>
+    <string name="finish">Finish</string>
+    <string name="you_have_correct_out_of_total">You have %1$d out of %2$d questions correct.</string>
 
     <string name="begin">Begin</string>
 </resources>

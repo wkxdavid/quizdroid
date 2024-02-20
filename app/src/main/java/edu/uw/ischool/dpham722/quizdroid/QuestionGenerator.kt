@@ -24,7 +24,7 @@
             var questionNum = intent.getIntExtra("questionNumber", 0)
             val numberOfQuestion = findViewById<TextView>(R.id.questionNum)
             val quizQuestion = findViewById<TextView>(R.id.quizQuestion)
-            val question = QuizApp.repo.getQuiz(topicIndex, questionNum).question
+            val question = QuizApp.repo.getQuiz(topicIndex, questionNum).text
 
             userCorrect = intent.getIntExtra("numCorrect", 0)
 
@@ -53,13 +53,13 @@
             }
 
             submitButton.setOnClickListener {
-                val correctAnswerIndex = QuizApp.repo.getQuiz(topicIndex, questionNum).correct
+                val correctAnswerIndex = QuizApp.repo.getQuiz(topicIndex, questionNum).answer
                 val correctAnswer = options[correctAnswerIndex]
                 if (userAnswer == correctAnswer) {
                     isCorrect = true
                     userCorrect++
                 }
-                val totalQuestions = topicChoice.quizzes.size
+                val totalQuestions = topicChoice.questions.size
                 val intent = Intent(this, AnswerActivity::class.java).apply {
                     putExtra("userAnswer", userAnswer)
                     putExtra("correctAnswer", correctAnswerIndex)

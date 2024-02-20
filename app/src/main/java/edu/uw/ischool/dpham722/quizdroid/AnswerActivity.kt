@@ -12,12 +12,12 @@ class AnswerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_answer)
 
         val userAnswer = intent.getStringExtra("userAnswer")
-        val correctAnswer = intent.getIntExtra("correctAnswer", 0)
+        val correctquestiontAnswer = intent.getIntExtra("correctAnswer", 0)
         val numCorrect = intent.getIntExtra("numCorrect", 0)
         val totalQuestions = intent.getIntExtra("totalQuestions", 0)
         val questionNumber = intent.getIntExtra("questionNumber", 0)
         val topic = intent.getIntExtra("quizTopic", 0)
-        val questionAnswer = QuizApp.repo.getQuiz(topic, questionNumber).answers[correctAnswer]
+        val questionAnswer = QuizApp.repo.getQuiz(topic, questionNumber).answers[correctquestiontAnswer]
 
         val youAnsweredTextView = findViewById<TextView>(R.id.userAnswer)
         val correctAnswerTextView = findViewById<TextView>(R.id.correctAnswer)

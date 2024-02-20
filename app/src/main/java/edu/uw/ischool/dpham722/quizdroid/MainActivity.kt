@@ -10,6 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import android.view.MenuItem
+import android.util.Log
+import android.view.Menu
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +29,37 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+        override fun onResume() {
+            super.onResume()
+            Log.i("OnResume()", "onResume called")
+
+            val urlPref = findViewById<TextView>(R.id.urlPref)
+            val minutePref = findViewById<TextView>(R.id.minutePref)
+
+            val urlInput = intent.getStringExtra("url")
+            val minuteInput = intent.getIntExtra("downloadMinute", 0)
+
+            if (!urlInput.isNullOrBlank()) {
+                urlPref.text = "URL: $urlInput"
+                minutePref.text = "Minute Increment: $minuteInput"
+            }
+        }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.bar_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.dropDown -> {
+                val intent = Intent(this, Preferences::class.java)
+                startActivity(intent)
+                true
+            } else -> super.onOptionsItemSelected(item)
+        }
+    }
+
 }
 
 class TopicListAdapter(private val context: Context, private val topics: List<QuizApp.Topic>) : BaseAdapter() {
@@ -57,7 +91,7 @@ class TopicListAdapter(private val context: Context, private val topics: List<Qu
 
         val topic = getItem(position) as QuizApp.Topic
         holder.topicTextView.text = topic.title
-        holder.shortDescTextView.text = topic.shortDesc
+        holder.shortDescTextView.text = topic.desc
 
         return view
     }

@@ -29,6 +29,11 @@
     <string name="number_of_questions">Number of questions: %1$d</string>
     <string name="finish">Finish</string>
     <string name="you_have_correct_out_of_total">You have %1$d out of %2$d questions correct.</string>
-
+    <string name="preference_configuration">Preference Configuration:</string>
+    <string name="url_none">URL: None</string>
+    <string name="minute_increment_none">Minute Increment: None</string>
     <string name="begin">Begin</string>
+    <string name="url_preference_hint">URL Preference</string>
+    <string name="minutes_for_download_hint">Minutes for New Download</string>
+    <string name="submit_button_text">Submit</string>
 </resources>

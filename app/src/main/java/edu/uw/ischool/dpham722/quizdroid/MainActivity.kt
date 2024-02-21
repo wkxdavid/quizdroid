@@ -13,6 +13,10 @@ import android.widget.TextView
 import android.view.MenuItem
 import android.util.Log
 import android.view.Menu
+import androidx.lifecycle.Observer
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkInfo
+import androidx.work.WorkManager
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,22 +32,30 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("quizTopic", position)
             startActivity(intent)
         }
-    }
-        override fun onResume() {
-            super.onResume()
-            Log.i("OnResume()", "onResume called")
 
-            val urlPref = findViewById<TextView>(R.id.urlPref)
-            val minutePref = findViewById<TextView>(R.id.minutePref)
+        val downloadRequest = OneTimeWorkRequestBuilder<ActivityDownload>().build()
+        WorkManager.getInstance(this).enqueue(downloadRequest)
 
-            val urlInput = intent.getStringExtra("url")
-            val minuteInput = intent.getIntExtra("downloadMinute", 0)
-
-            if (!urlInput.isNullOrBlank()) {
-                urlPref.text = "URL: $urlInput"
-                minutePref.text = "Minute Increment: $minuteInput"
+        WorkManager.getInstance(this).getWorkInfoByIdLiveData(downloadRequest.id).observe(this, Observer { workInfo ->
+            if (workInfo != null && workInfo.state == WorkInfo.State.SUCCEEDED) {
+                Log.d("MainActivity", "Download completed successfully")
+            } else if (workInfo != null && workInfo.state == WorkInfo.State.FAILED) {
+                Log.d("MainActivity", "Download failed")
             }
-        }
+        })
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        Log.i("MainActivity", "onResume called")
+
+        val sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE)
+        val downloadMinute = sharedPreferences.getInt("downloadMinute", 5)
+
+        val minutePref = findViewById<TextView>(R.id.minutePref)
+        minutePref.text = "Minute Increment: $downloadMinute"
+    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.bar_menu, menu)
@@ -52,14 +64,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.dropDown -> {
-                val intent = Intent(this, Preferences::class.java)
-                startActivity(intent)
+            R.id.preferencesMenuItem -> {
+                startActivity(Intent(this, Preferences::class.java))
                 true
-            } else -> super.onOptionsItemSelected(item)
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
-
 }
 
 class TopicListAdapter(private val context: Context, private val topics: List<QuizApp.Topic>) : BaseAdapter() {

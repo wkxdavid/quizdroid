@@ -9,12 +9,12 @@
         android:id="@+id/quizOptions"
         android:layout_width="191dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="200dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="207dp"
         android:layout_marginBottom="14dp"
         android:text="@string/select_quiz"
         android:textSize="17sp" />
@@ -23,15 +23,15 @@
         android:layout_width="400dp"
         android:layout_height="600dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="85dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="45dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginBottom="1dp"
         android:orientation="vertical">
 
         <ListView
             android:id="@+id/quizView"
             android:layout_width="match_parent"
-            android:layout_height="350dp" />
+            android:layout_height="228dp" />
 
         <TextView
             android:id="@+id/preferenceText"
@@ -43,18 +43,21 @@
 
         <TextView
             android:id="@+id/urlPref"
-            android:layout_width="335dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/url_none" />
+            android:text="URL Preference" />
 
         <TextView
             android:id="@+id/minutePref"
-            android:layout_width="335dp"
+            android:layout_width="wrap_content"
+            android:layout_height="69dp"
+            android:text="Minute Increment Preference" />
+
+        <Button
+            android:id="@+id/button_open_preferences"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/minute_increment_none" />
+            android:text="Open Preferences" />
+
     </LinearLayout>
 </RelativeLayout>

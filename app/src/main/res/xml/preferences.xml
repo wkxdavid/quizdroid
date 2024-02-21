@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="URL Download">
+
+        <EditTextPreference
+            android:key="download_interval"
+            android:title="Download Interval"
+            android:summary="Check for new downloads every N minutes."
+            android:inputType="number"
+            android:defaultValue="1" />
+
+        <EditTextPreference
+            android:key="questionsUrlKey"
+            android:title="Download Questions"
+            android:summary="Input the URL to display the questions."
+            android:defaultValue="http://defaulturl.com/questions.json"
+            android:inputType="textUri"/>
+
+    </PreferenceCategory>
+</PreferenceScreen>
